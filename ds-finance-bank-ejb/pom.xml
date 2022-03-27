@@ -42,6 +42,8 @@
       <version>6.0</version>
       <scope>provided</scope>
     </dependency>
+
+
   </dependencies>
 
   <build>
@@ -64,7 +66,12 @@
             <phase>generate-sources</phase>
             <configuration>
               <sourceRoot>${project.build.directory}/generated-sources/cxf</sourceRoot>
-              <wsdlRoot>${basedir}/src/main/resources/META-INF/wsdl-consumed</wsdlRoot>
+              <wsdlRoot>${basedir}/src/main/resources/META-INF/wsdl-consumed/</wsdlRoot>
+                <wsdlOptions>
+                  <wsdlOption>
+                    <wsdl>${basedir}/src/main/resources/META-INF/wsdl-consumed/TradingService.wsdl</wsdl>
+                  </wsdlOption>
+              </wsdlOptions>
             </configuration>
             <goals>
               <goal>wsdl2java</goal>
