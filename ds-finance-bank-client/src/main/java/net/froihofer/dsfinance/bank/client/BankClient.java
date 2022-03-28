@@ -34,10 +34,10 @@ public class BankClient {
       JBoss7JndiLookupHelper jndiHelper = new JBoss7JndiLookupHelper(new InitialContext(props), "ds-finance-bank-ear", "ds-finance-bank-ejb", "");
       //TODO: Implement the rest of the functionality
 
-/*      FindStockQuotesByCompanyName Apple = new FindStockQuotesByCompanyName();
-
-      Apple.setPartOfCompanyName("Apple");
-      Apple.getPartOfCompanyName();*/
+//      FindStockQuotesByCompanyName Apple = new FindStockQuotesByCompanyName();
+//
+//      Apple.setPartOfCompanyName("Apple");
+//      Apple.getPartOfCompanyName();
 
     }
     catch (NamingException e) {
