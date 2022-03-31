@@ -7,7 +7,6 @@
     <version>1.0-SNAPSHOT</version>
   </parent>
 
-  <groupId>net.froihofer</groupId>
   <artifactId>ds-finance-bank-web</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
@@ -23,11 +22,6 @@
     <!-- Own dependencies -->
     <dependency>
       <groupId>${project.groupId}</groupId>
-      <artifactId>ds-finance-bank-common</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>${project.groupId}</groupId>
       <artifactId>ds-finance-bank-ejb</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
@@ -37,7 +31,13 @@
     <dependency>
       <groupId>javax</groupId>
       <artifactId>javaee-web-api</artifactId>
-      <version>6.0</version>
+      <version>8.0.1</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.jaxrs</groupId>
+      <artifactId>jackson-jaxrs-json-provider</artifactId>
+      <version>${jackson.version}</version>
       <scope>provided</scope>
     </dependency>
   </dependencies>

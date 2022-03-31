@@ -15,7 +15,6 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <cxf.version>3.5.1</cxf.version>
   </properties>
 
   <dependencies>
@@ -35,23 +34,36 @@
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
-      <version>1.0.7</version>
-    </dependency>
-    <dependency>
-      <groupId>commons-logging</groupId>
-      <artifactId>commons-logging</artifactId>
-      <version>1.1.1</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>jcl-over-slf4j</artifactId>
-      <version>${slf4j.version}</version>
+      <version>1.2.7</version>
     </dependency>
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
       <version>${commons-lang.version}</version>
+    </dependency>
+
+    <!-- JAX-WS dependencies -->
+    <dependency>
+      <groupId>org.apache.cxf</groupId>
+      <artifactId>cxf-rt-frontend-jaxws</artifactId>
+      <version>${cxf.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.cxf</groupId>
+      <artifactId>cxf-rt-transports-http</artifactId>
+      <version>${cxf.version}</version>
+    </dependency>
+
+    <!-- JAX-RS dependencies -->
+    <dependency>
+      <groupId>org.apache.cxf</groupId>
+      <artifactId>cxf-rt-rs-client</artifactId>
+      <version>${cxf.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.jaxrs</groupId>
+      <artifactId>jackson-jaxrs-json-provider</artifactId>
+      <version>${jackson.version}</version>
     </dependency>
     
     <!-- WildFly client libraries -->
@@ -78,9 +90,6 @@
       <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
-
-
-
   </dependencies>
 
   <build>
@@ -131,24 +140,16 @@
             <phase>generate-sources</phase>
             <configuration>
               <sourceRoot>${project.build.directory}/generated-sources/cxf</sourceRoot>
-              <!--  <wsdlRoot>${basedir}/src/main/resources/META-INF/wsdl-consumed</wsdlRoot>  -->
-                            <wsdlOptions>
-                              <wsdlOption>
-                                <wsdl>${basedir}/src/main/resources/wsdl-consumed/TradingService.wsdl</wsdl>
-                                <packagenames>
-                                  <packagename>io.codejournal.maven.wsdl2java</packagename>
-                                </packagenames>
-                              </wsdlOption>
-                            </wsdlOptions>
-                          </configuration>
-                          <goals>
-                            <goal>wsdl2java</goal>
-                          </goals>
-                        </execution>
-                      </executions>
-                    </plugin>
-                  </plugins>
-                </build>
+              <wsdlRoot>${basedir}/src/main/resources/META-INF/wsdl-consumed</wsdlRoot>
 
-              </project>
+            </configuration>
+            <goals>
+              <goal>wsdl2java</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 
+</project>
