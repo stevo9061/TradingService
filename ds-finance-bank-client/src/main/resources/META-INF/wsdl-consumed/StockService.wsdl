@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://jboss.util.froihofer.net/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="StockServiceService" targetNamespace="http://jboss.util.froihofer.net/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://jboss.util.froihofer.net/" elementFormDefault="unqualified" targetNamespace="http://jboss.util.froihofer.net/" version="1.0">
+
+  <xs:element name="buy" type="tns:buy"/>
+
+  <xs:element name="buyResponse" type="tns:buyResponse"/>
+
+  <xs:element name="searchForStock" type="tns:searchForStock"/>
+
+  <xs:element name="searchForStockResponse" type="tns:searchForStockResponse"/>
+
+  <xs:complexType name="searchForStock">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="searchForStockResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="buy">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element name="arg1" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="buyResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:decimal"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="searchForStock">
+    <wsdl:part element="tns:searchForStock" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="buyResponse">
+    <wsdl:part element="tns:buyResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="buy">
+    <wsdl:part element="tns:buy" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="searchForStockResponse">
+    <wsdl:part element="tns:searchForStockResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="StockService">
+    <wsdl:operation name="searchForStock">
+      <wsdl:input message="tns:searchForStock" name="searchForStock">
+    </wsdl:input>
+      <wsdl:output message="tns:searchForStockResponse" name="searchForStockResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buy">
+      <wsdl:input message="tns:buy" name="buy">
+    </wsdl:input>
+      <wsdl:output message="tns:buyResponse" name="buyResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="StockServiceServiceSoapBinding" type="tns:StockService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="searchForStock">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="searchForStock">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="searchForStockResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buy">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="buy">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="buyResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="StockServiceService">
+    <wsdl:port binding="tns:StockServiceServiceSoapBinding" name="StockServicePort">
+      <soap:address location="http://localhost:8080/ds-finance-bank/ws/StockService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

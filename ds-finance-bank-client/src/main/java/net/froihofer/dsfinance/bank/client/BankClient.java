@@ -1,14 +1,12 @@
 package net.froihofer.dsfinance.bank.client;
 
 
-import net.froihofer.dsfinance.ws.trading.PublicStockQuote;
-import net.froihofer.dsfinance.ws.trading.TradingWSException_Exception;
-import net.froihofer.dsfinance.ws.trading.TradingWebService;
-import net.froihofer.dsfinance.ws.trading.TradingWebServiceService;
 
 
 import net.froihofer.util.AuthCallbackHandler;
 import net.froihofer.util.JBoss7JndiLookupHelper;
+import net.froihofer.util.jboss.StockService;
+import net.froihofer.util.jboss.StockServiceService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import javax.naming.Context;
@@ -31,14 +29,15 @@ import java.util.Scanner;
 public class BankClient {
   private static Logger log = LoggerFactory.getLogger(BankClient.class);
 
+  /*
   public static void main(String[] args) {
 
 
-/*    AuthCallbackHandler.setUsername("customer");
-    AuthCallbackHandler.setPassword("customerpass");
-    Properties props = new Properties();
-    props.put(Context.SECURITY_PRINCIPAL,AuthCallbackHandler.getUsername());
-    props.put(Context.SECURITY_CREDENTIALS,AuthCallbackHandler.getPassword());*/
+//    AuthCallbackHandler.setUsername("customer");
+//    AuthCallbackHandler.setPassword("customerpass");
+//    Properties props = new Properties();
+//    props.put(Context.SECURITY_PRINCIPAL,AuthCallbackHandler.getUsername());
+//    props.put(Context.SECURITY_CREDENTIALS,AuthCallbackHandler.getPassword());
 
     Properties props = new Properties();
 
@@ -47,16 +46,16 @@ public class BankClient {
       //TODO: Implement the rest of the functionality
 
 
-      TradingWebServiceService tradingWebServiceService = new TradingWebServiceService(new URL(
-              "http://edu.dedisys.org/ds-finance/ws/TradingService?wsdl"));
+      StockServiceService tradingWebServiceService = new StockServiceService(new URL(
+              "http://localhost:8080/ds-finance-bank/ws/StockService?wsdl"));
 
-              TradingWebService proxy = tradingWebServiceService.getTradingWebServicePort();
+              StockService proxy = tradingWebServiceService.getStockServicePort();
 
       BindingProvider bindingProvider = (BindingProvider) proxy;
 
       bindingProvider.getRequestContext().put(
               BindingProvider.ENDPOINT_ADDRESS_PROPERTY,
-              "http://edu.dedisys.org/ds-finance/ws/TradingService");
+              "http://localhost:8080/ds-finance-bank/ws/StockService?wsdl");
 
               bindingProvider.getRequestContext().put(
                       BindingProvider.USERNAME_PROPERTY, "bic4a22_04");
@@ -114,5 +113,9 @@ public class BankClient {
     catch (NamingException | MalformedURLException | TradingWSException_Exception e) {
       log.error("Failed to initialize InitialContext.",e);
     }
+
   }
+
+*/
+
 }

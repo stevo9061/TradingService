@@ -45,7 +45,8 @@ public class JBoss7JndiLookupHelper {
   }
   
   @SuppressWarnings("unchecked")
-  public <T> T lookupUsingJBossEjbClient(String beanName, Class<T> remoteInterfaceClass, boolean isStateless) throws NamingException {
+  public <T> T lookupUsingJBossEjbClient(String beanName, Class<T> remoteInterfaceClass) throws NamingException {
+    boolean isStateless = true;
     return (T) ctx.lookup("ejb:" + getJndiName(beanName, remoteInterfaceClass) +(isStateless ? "" : "?stateful"));
   }
   
