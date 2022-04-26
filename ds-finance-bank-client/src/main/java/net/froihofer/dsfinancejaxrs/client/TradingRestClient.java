@@ -14,7 +14,7 @@ import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
 public class TradingRestClient {
     public static void main(String[] args) {
 
-        try {
+        /*try {
             Client client = ClientBuilder.newClient().register(JacksonJsonProvider.class);
             WebTarget baseTarget = client.target("http://localhost:8080/ds-finance/ws/rs/trading/stock");
             WebTarget postTarget = baseTarget.path("{symbol}").path("sell");
@@ -31,7 +31,7 @@ public class TradingRestClient {
             System.out.println(getTarget.request().get().readEntity(String.class));
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
-        }
+        }*/
     }
 
 }
