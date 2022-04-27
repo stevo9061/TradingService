@@ -2,32 +2,32 @@ package net.froihofer.dsfinancejaxrs.client;
 
 public class SellShare {
 
-    private String amount;
-    private String share;
+    private int shares;
+    private String symbol;
 
     public SellShare() {
 
     }
 
-    public SellShare(String amount, String share) {
-        this.amount = amount;
-        this.share = share;
+    public SellShare(int shares, String symbol) {
+        this.shares = shares;
+        this.symbol = symbol;
     }
 
-    public String getAmount() {
-        return amount;
+    public int getShares() {
+        return shares;
     }
 
-    public void setAmount(String amount) {
-        this.amount = amount;
+    public void setShares(int shares) {
+        this.shares = shares;
     }
 
-    public String getShare() {
-        return share;
+    public String getSymbol() {
+        return symbol;
     }
 
-    public void setShare(String share) {
-        this.share = share;
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
     }
 
 }

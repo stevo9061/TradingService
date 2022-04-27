@@ -16,16 +16,16 @@ import java.util.Map;
 public class TradingRestService {
     private static final Logger log = LoggerFactory.getLogger(TradingRestService.class);
 
-    private static Map<String, String> toSell = new HashMap<>();
+    private static Map<String, Integer> toSell = new HashMap<>();
 
     /**
      * Stores the share and the amount from a sender and returns share and amount.
      */
 
     @POST @Path("stock/{symbol}/sell")
-    public Response setSell(String amount, @PathParam("symbol") String share) {
-        toSell.put(share, amount);
-        return Response.ok(new SellShare(amount, share)).build();
+    public Response setSell(int shares, @PathParam("symbol") String symbol) {
+        toSell.put(symbol, shares);
+        return Response.ok(new SellShare(shares, symbol)).build();
     }
 
 
@@ -33,14 +33,14 @@ public class TradingRestService {
      * Returns the sold share of the specific input.
      */
     // Das Verzeichnis 'response' wurde selbst ausgewählt, mal schauen ob das funktioniert..
-    @GET @Path("stock/response")
+    @GET @Path("/result")
     @Produces("text/plain")
-    public Response getSell(@QueryParam("symbol") String share) {
-        if(toSell.containsKey(share)) {
-            return Response.ok(share+" was successful sold \""+toSell.get(share)+"\"").build();
+    public Response getSell(@QueryParam("symbol") String symbol) {
+        if(toSell.containsKey(symbol)) {
+            return Response.ok(symbol+" was successful sold \""+toSell.get(symbol)+"\"").build();
         }
         else {
-            return Response.status(Response.Status.NOT_FOUND).entity("No share found from "+share+"?.?").build();
+            return Response.status(Response.Status.NOT_FOUND).entity("No share found from "+symbol+"?.?").build();
         }
     }
 
