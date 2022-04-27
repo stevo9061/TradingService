@@ -1,6 +1,5 @@
 package common;
 
-import util.StockQuote;
 import java.math.BigDecimal;
 import java.util.List;
 
