@@ -5,12 +5,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.ws.rs.*;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.HashMap;
 import java.util.Map;
 
-@Path("/trading") // URI des Pfades
+//@Path("/trading") // URI des Pfades
+@Path("/ds-finance")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class TradingRestService {
@@ -24,6 +28,11 @@ public class TradingRestService {
 
     @POST @Path("stock/{symbol}/sell")
     public Response setSell(int shares, @PathParam("symbol") String symbol) {
+        Client client = ClientBuilder.newClient().register(new JaxRsAuthenticator("bic4a22_04", "IoD6eic"));
+        System.out.println("HELLO Symbol = "+symbol);
+        WebTarget baseTarget = client.target("http://edu.dedisys.org/ds-finance/ws/rs/trading/stock");
+
+
         toSell.put(symbol, shares);
         return Response.ok(new SellShare(shares, symbol)).build();
     }

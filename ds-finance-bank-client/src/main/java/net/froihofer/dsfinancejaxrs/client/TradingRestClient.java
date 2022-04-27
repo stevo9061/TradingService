@@ -16,7 +16,7 @@ public class TradingRestClient {
 
         BankClientRest bankClientRest = new BankClientRest();
 
-        try {
+/*        try {
 
             Client client = ClientBuilder.newClient().register(new JaxRsAuthenticator("Balou", "1234"));
 
@@ -40,7 +40,7 @@ public class TradingRestClient {
             System.out.println(getTarget.request().get().readEntity(String.class));
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
-        }
+        }*/
     }
 
 }
