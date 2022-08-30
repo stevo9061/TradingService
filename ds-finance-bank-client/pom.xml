@@ -101,7 +101,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>net.froihofer.dsfinance.bank.client.BankClient_LocalWebServiceCall</mainClass>
+              <mainClass>net.froihofer.dsfinance.bank.client.BankClient</mainClass>
               <addClasspath>true</addClasspath>
               <classpathPrefix>lib/</classpathPrefix>
               <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
@@ -141,7 +141,6 @@
             <configuration>
               <sourceRoot>${project.build.directory}/generated-sources/cxf</sourceRoot>
               <wsdlRoot>${basedir}/src/main/resources/META-INF/wsdl-consumed</wsdlRoot>
-
             </configuration>
             <goals>
               <goal>wsdl2java</goal>

@@ -13,22 +13,23 @@ import java.util.List;
 
 public class BankClientRest {
 
-    public BankClientRest () {
+    public BankClientRest() {
         try {
             Client client = ClientBuilder.newClient().register(new JaxRsAuthenticator("Balou", "1234")).register(JacksonJsonProvider.class);
             WebTarget baseTarget = client.target("http://localhost:8080/ds-finance-bank-web/rs/ds-finance/trading/stock/AAPL/history");
 
-            System.out.println(baseTarget.request().get().readEntity(String.class));
+//            System.out.println(baseTarget.request().get().readEntity(String.class));
 //            List<StockJson> ret = (List<StockJson>) baseTarget.request().get().readEntity(StockJson.class);
-            List<StockJson> response = baseTarget.request().get(new GenericType<List<StockJson>>() {});
-            System.out.println(response);
+            List<StockJson> response = baseTarget.request().get(new GenericType<List<StockJson>>() {
+            });
 
-            for (StockJson ret : response) {
-                System.out.println(ret.getCompanyName());
+            for (StockJson i : response) {
+                System.out.println("Stock: " + i.getCompanyName() + ", Last trading price: " + i.getLastTradePrice() +
+                        ", Last trading time: " + i.getLastTradeTime() +
+                        ", Last market capitalization: " + i.getMarketCapitalization());
             }
 
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("Something went wrong.");
             e.printStackTrace();
         }
