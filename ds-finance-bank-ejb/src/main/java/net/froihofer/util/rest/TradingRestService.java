@@ -13,6 +13,7 @@ import javax.ws.rs.core.Response;
 import java.util.HashMap;
 import java.util.Map;
 
+
 //@Path("/trading") // URI des Pfades
 @Path("/ds-finance")
 @Produces(MediaType.APPLICATION_JSON)

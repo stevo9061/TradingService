@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Base64;
 
+
 public class JaxRsAuthenticator implements ClientRequestFilter {
 
     private String user;

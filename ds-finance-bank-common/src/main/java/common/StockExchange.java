@@ -4,7 +4,6 @@ import javax.ejb.Remote;
 import java.math.BigDecimal;
 import java.util.List;
 
-
 @Remote
 public interface StockExchange {
 

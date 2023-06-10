@@ -20,7 +20,6 @@ import org.slf4j.LoggerFactory;
  */
 public class AuthCallbackHandler implements CallbackHandler {
   private static final Logger log = LoggerFactory.getLogger(AuthCallbackHandler.class);
-
   private static String username;
   private static String password;
   private static String realm = "ApplicationRealm";

@@ -3,6 +3,7 @@ package net.froihofer.util.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 
+
 @Entity
 @Table(name="Kunde")
 public class Kunde implements Serializable {

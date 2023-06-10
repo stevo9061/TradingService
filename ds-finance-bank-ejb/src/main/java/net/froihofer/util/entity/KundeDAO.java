@@ -2,6 +2,7 @@ package net.froihofer.util.entity;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.ws.rs.client.Client;
 
 /**
  * Data access object for {@link Client} entity, encapsulating all

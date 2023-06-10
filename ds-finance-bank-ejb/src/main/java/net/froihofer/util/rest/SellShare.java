@@ -1,5 +1,6 @@
 package net.froihofer.util.rest;
 
+
 public class SellShare {
 
     private int shares;

@@ -1,10 +1,10 @@
 package common;
 
 import java.io.Serializable;
-
 /**
  * @author Lorenz Froihofer
  */
+
 public class CustomerDTO implements Serializable {
 
   private String firstName;

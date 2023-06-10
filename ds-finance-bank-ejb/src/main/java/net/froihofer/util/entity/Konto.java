@@ -16,7 +16,6 @@ public class Konto implements Serializable {
 
     }
 
-
     @Id
     @GeneratedValue
     public int getKontoNr() {
@@ -43,6 +42,5 @@ public class Konto implements Serializable {
     public void setBesitzer(Kunde besitzer) {
         this.besitzer = besitzer;
     }
-
 
 }

@@ -101,7 +101,6 @@ public class StockService implements StockExchange {
 
         return val;
     }
-
     @Override
     public CustomerDTO createCustomer(CustomerDTO customerDTO) {
 

@@ -39,7 +39,6 @@ public class JBoss7JndiLookupHelper {
     this.moduleName = moduleName;
     this.distinctName = distinctName;
   }
-
   private <T> String getJndiName(String beanName, Class<T> remoteInterfaceClass) {
     return applicationName + "/" +moduleName+"/"+distinctName+ "/"+beanName+"!"+remoteInterfaceClass.getName();
   }
